@@ -82,9 +82,17 @@
 
   <iframe id="mapFrame" src="A9_CS_Average_P0.html"></iframe>
 
-  <a class="viewer-button" href="https://autode.sk/4krPuP0" target="_blank">
-    Open Autodesk Viewer
-  </a>
+  <a class="viewer-button" href="#" onclick="openViewerPopup()">Open Autodesk Viewer</a>
+
+<script>
+function openViewerPopup() {
+  window.open(
+    "https://autode.sk/4krPuP0",
+    "BIMViewer",
+    "width=1000,height=700,resizable=yes,scrollbars=yes"
+  );
+}
+</script>
 
   <script>
     const tabs = document.querySelectorAll(".tab");
