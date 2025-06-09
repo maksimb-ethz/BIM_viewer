@@ -53,10 +53,10 @@ title: Master Thesis Maksim Borovlev
 </head>
 <body>
   <div class="map-container">
-    <!-- Fullscreen map -->
+    <!-- Fullscreen map using fixed file -->
     <iframe src="A9_CS_Average_P0.html"></iframe>
 
-    <!-- Floating button -->
+    <!-- Floating Autodesk Viewer button -->
     <a class="viewer-button" href="https://autode.sk/4krPuP0" target="_blank">Open Autodesk Viewer</a>
   </div>
 </body>
