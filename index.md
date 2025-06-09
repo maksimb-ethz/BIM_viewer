@@ -16,52 +16,48 @@ title: Master Thesis Maksim Borovlev
       font-family: sans-serif;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
+    .map-container {
+      position: relative;
       width: 100%;
+      height: 100%;
     }
 
-    .map-panel {
-      flex: 1;
-      border: none;
-      height: 100%;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      border: none;
     }
 
     .viewer-button {
-      height: 60px;
-      text-align: center;
-      background: #f5f5f5;
-      padding-top: 10px;
-      border-top: 1px solid #ccc;
-    }
-
-    .viewer-button a {
-      display: inline-block;
-      padding: 12px 24px;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       background: #007bff;
       color: white;
-      text-decoration: none;
-      border-radius: 6px;
+      padding: 14px 26px;
       font-size: 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
 
-    .viewer-button a:hover {
+    .viewer-button:hover {
       background: #0056b3;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Top: Fullscreen map -->
-    <iframe class="map-panel" src="A9_CS_Average_P0.html"></iframe>
+  <div class="map-container">
+    <!-- Fullscreen map -->
+    <iframe src="A9_CS_Average_P0.html"></iframe>
 
-    <!-- Bottom: Viewer button -->
-    <div class="viewer-button">
-      <a href="https://autode.sk/4krPuP0" target="_blank">Open Autodesk Viewer</a>
-    </div>
+    <!-- Floating button -->
+    <a class="viewer-button" href="https://autode.sk/4krPuP0" target="_blank">Open Autodesk Viewer</a>
   </div>
 </body>
 </html>
