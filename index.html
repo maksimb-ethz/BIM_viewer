@@ -81,24 +81,33 @@
 
   <iframe id="mapFrame" src="A9_CS_Average_P0.html"></iframe>
 
-  <a class="viewer-button" id="viewerLink" href="https://autode.sk/448GtVj" target="_blank">
-    Open Autodesk Viewer
-  </a>
+  <a class="viewer-button" id="viewerButton" href="#">Open Autodesk Viewer</a>
 
   <script>
-    const tabs = document.querySelectorAll(".tab");
-    const iframe = document.getElementById("mapFrame");
-    const viewerLink = document.getElementById("viewerLink");
+  const tabs = document.querySelectorAll(".tab");
+  const iframe = document.getElementById("mapFrame");
+  const viewerButton = document.getElementById("viewerButton");
 
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-        iframe.src = tab.getAttribute("data-map");
-        viewerLink.href = tab.getAttribute("data-viewer");
-      });
+  let currentViewerLink = "https://autode.sk/448GtVj"; // default for P0
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      iframe.src = tab.getAttribute("data-map");
+      currentViewerLink = tab.getAttribute("data-viewer");
     });
-  </script>
+  });
+
+  viewerButton.addEventListener("click", () => {
+    window.open(
+      currentViewerLink,
+      "ViewerPopup",
+      "width=1000,height=700,resizable=yes,scrollbars=yes"
+    );
+  });
+</script>
 
 </body>
 </html>
