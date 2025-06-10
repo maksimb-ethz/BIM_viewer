@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +43,7 @@
       top: 40px;
       left: 0;
       width: 100%;
-      height: calc(100% - 40px); /* 40px for tabs, 40px for button */
+      height: calc(100% - 40px);
       border: none;
     }
 
@@ -71,38 +70,32 @@
 <body>
 
   <div class="tabs">
-    <div class="tab active" data-map="A9_CS_Average_P0.html">P0</div>
-    <div class="tab" data-map="A9_CS_Average_P1.html">P1</div>
-    <div class="tab" data-map="A9_CS_Average_P2.html">P2</div>
-    <div class="tab" data-map="A9_CS_Average_P3.html">P3</div>
-    <div class="tab" data-map="A9_CS_Average_P4.html">P4</div>
-    <div class="tab" data-map="A9_CS_Average_P5.html">P5</div>
-    <div class="tab" data-map="A9_CS_Average_P6.html">P6</div>
+    <div class="tab active" data-map="A9_CS_Average_P0.html" data-viewer="https://autode.sk/448GtVj">P0</div>
+    <div class="tab" data-map="A9_CS_Average_P1.html" data-viewer="https://autode.sk/400lCB4">P1</div>
+    <div class="tab" data-map="A9_CS_Average_P2.html" data-viewer="https://autode.sk/4lk5QcP">P2</div>
+    <div class="tab" data-map="A9_CS_Average_P3.html" data-viewer="https://autode.sk/43B0MKX">P3</div>
+    <div class="tab" data-map="A9_CS_Average_P4.html" data-viewer="https://autode.sk/4kAAgYh">P4</div>
+    <div class="tab" data-map="A9_CS_Average_P5.html" data-viewer="https://autode.sk/3SMYn9M">P5</div>
+    <div class="tab" data-map="A9_CS_Average_P6.html" data-viewer="https://autode.sk/3Hy1Bvw">P6</div>
   </div>
 
   <iframe id="mapFrame" src="A9_CS_Average_P0.html"></iframe>
 
-  <a class="viewer-button" href="#" onclick="openViewerPopup()">Open Autodesk Viewer</a>
-
-<script>
-function openViewerPopup() {
-  window.open(
-    "https://autode.sk/4krPuP0",
-    "BIMViewer",
-    "width=1000,height=700,resizable=yes,scrollbars=yes"
-  );
-}
-</script>
+  <a class="viewer-button" id="viewerLink" href="https://autode.sk/448GtVj" target="_blank">
+    Open Autodesk Viewer
+  </a>
 
   <script>
     const tabs = document.querySelectorAll(".tab");
     const iframe = document.getElementById("mapFrame");
+    const viewerLink = document.getElementById("viewerLink");
 
     tabs.forEach(tab => {
       tab.addEventListener("click", () => {
         tabs.forEach(t => t.classList.remove("active"));
         tab.classList.add("active");
         iframe.src = tab.getAttribute("data-map");
+        viewerLink.href = tab.getAttribute("data-viewer");
       });
     });
   </script>
